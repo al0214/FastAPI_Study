@@ -1,9 +1,12 @@
-from fastapi import APIRouter, Path
+from fastapi import APIRouter, Path, HTTPException, status, Request, Depends
+from fastapi.templating import Jinja2Templates
 from model import Todo, TodoItem, TodoItems
 
 todo_router = APIRouter()
 
 todo_list = []
+
+templates = Jinja2Templates(directory="templates/")
 
 
 @todo_router.post("/todo")
@@ -15,13 +18,14 @@ async def add_todo(todo: Todo) -> dict:
 
 
 @todo_router.get("/todo", response_model=TodoItems)
-async def retrieve_todos() -> dict:
+async def retrieve_todos(request: Request, todo: Todo = Depends(Todo.as_form)):
+    todo.id = len(todo_list) + 1
     return {
         "todos": todo_list
     }
 
 
-@todo_router.get("/todo/{todo_id}")
+@todo_router.get("/todo/{todo_id}") 
 async def get_single_todo(todo_id: int = Path(..., title="The ID of the todo to retrieve")) -> dict:
     for todo in todo_list:
         if todo.id == todo_id:
