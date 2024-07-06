@@ -1,15 +1,16 @@
 [tool.poetry]
-name = "basic"
+name = "hoseoswproject"
 version = "0.1.0"
 description = ""
 authors = ["al0214 <sisang951@hansei.sen.hs.kr>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
-fastapi = "^0.110.0"
-uvicorn = "^0.27.1"
-jinja2 = "^3.1.3"
+python = "3.11.9"
+uvicorn = "^0.30.1"
+fastapi = "^0.111.0"
+pydantic = "^2.8.0"
+jinja2 = "^3.1.4"
 python-multipart = "^0.0.9"
 
 
