@@ -8,6 +8,9 @@ class User(BaseModel):
     password: str
     # events: Optional[List[Event]]
 
+    class Settings:
+        name = "users"
+
     class Config:
         json_schema_extra = {
             "example": {
