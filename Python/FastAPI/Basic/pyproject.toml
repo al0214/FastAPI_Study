@@ -17,6 +17,8 @@ beanie = "1.13.1"
 pytest = "^8.3.2"
 black = "^24.8.0"
 pre-commit = "^3.8.0"
+httpie = "^3.2.3"
+httpx = "^0.27.2"
 
 
 [build-system]
