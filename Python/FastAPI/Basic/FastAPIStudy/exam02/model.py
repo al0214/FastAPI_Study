@@ -1,8 +1,8 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, constr
 
 
 class Creature(BaseModel):
-    name: str
+    name: constr(min_length=2)
     country: str
     area: str
     description: str
@@ -10,9 +10,11 @@ class Creature(BaseModel):
 
 
 thing = Creature(
-    name="Yeti",
+    name="!",
     country="CN",
     area="Himalayas",
     description="Hirsute Himalayan",
     aka="Abominable Snowman"
 )
+
+print(f'Name is {thing.name}')
