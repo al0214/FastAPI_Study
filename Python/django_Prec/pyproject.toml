@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "django-prec"
+version = "0.1.0"
+description = ""
+authors = ["al0214 <sisang951@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "<5"
+pillow = "<10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
